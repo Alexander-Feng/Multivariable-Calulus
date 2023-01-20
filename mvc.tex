@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Multivariable Calculus Expository Paper}
+\author{Alex Feng}
+\date{January 2023}
+\usepackage{physics}
+\begin{document}
+
+\maketitle
+
+
+\section{Partial Derivative}
+    Partial derivatives are used for functions with multiple variables. It shows the instantaneous rate of change at a point when only input variable can change. The partial derivative of a function, f(x,y), with respect to x can be expressed as $$\frac{\partial f}{\partial x} \textnormal{ or } \partial_x f$$ 
+    The steps for doing a partial derivative are the same as doing a derivative normally, since all the variables you aren't differentiating with respect to are treated as constant. For example, for a function $$f(x,y) = 3xy + 4x + 6y$$
+    $$\partial_x f = 3y + 4$$
+\section{Gradient}
+    The gradient of a function points to its steepest ascent, and the magnitude is the slope in that direction. The original function is a scalar function, and the resulting gradient of the function is a vector. The gradient of a function f can be expressed as $$\nabla f \textnormal{ or} \textnormal{ grad}f$$
+    $$\nabla f(x,y,z) = \hat{x} \partial_x f + \hat{y} \partial_y f + \hat{z} \partial_z f$$
+    For a function
+    $$f(x,y,z) = 12xy  + 4y + 3z^2$$
+    $$\nabla f = 12y \hat{x} + (12x+4)\hat{y} + 6z\hat{z}$$    
+\section{Divergence}
+    Vector functions can be thought of as describing the flow of a fluid. Flux is the amount of fluid flowing perpendicularly through an area. 
+    $$\phi = \vec{F} \cdot \vec{A}$$
+    where $\phi$ is the flux, F is the vector function, and A is the area. The area vector points perpendicular to the area. Divergence, written as $\nabla \cdot F$ or div$F$ measures the outward flux of a very small volume. 
+    $$\nabla \cdot F = \lim_{V \to 0} \frac{1}{V} \int_S F \cdot dA$$
+    Where the integral is the surface integral over the very small volume and measures the outwards flux. In Cartesian coordinates, 
+    $$\nabla \cdot F = \partial_x F_x + \partial_y F_y + \partial_z F_z$$
+    where $F_n$ is the nth component of $F$
+    A quick way to remember this is treating $\nabla$ as $\hat{x}\partial_x + \hat{y}\partial_y + \hat{z}\partial_z$. This also works for gradient and curl. This will not work for anything that isn't Cartesian coordinates, such as spherical coordinates. For a function 
+    $$F = (-y, xy, z)$$
+    $$\nabla \cdot F = x + 1$$
+\section{Laplacian}
+    The Laplacian is a second derivative for multivariable functions. It is the divergence of the gradient of a function, and its written as $\nabla \cdot \nabla$, $\Delta$, or $\nabla^2$. In Cartesian coordinates
+    $$\nabla^2 = \partial_x^2 + \partial_y^2 + \partial_z^2$$
+    For a function 
+    $$f(x,y,z) = x^3y^2 + zx^4$$
+    $$\nabla^2 f = 2 x^3 + 12 x^2 z + 6 x y^2$$
+\section{Curl}
+    Circulation, written as $\Gamma$, is the line integral over a closed curve, C. It measures how much of the fluid flow is circulating around an area bounded by the curve, C. 
+    $$\Gamma = \int_C F \cdot ds$$
+    Curl is written as $\nabla \times$, and defined as
+    $$(\nabla \times F) \cdot \hat{n} = \lim_{A \to 0} \frac{\Gamma}{A} $$
+    Where $\hat{n}$ is the unit vector normal to the area and $A$ is the area bounded by the curve. The normal unit vector is needed because curl results in a vector but $\lim_{A \to 0} \frac{\Gamma}{A}$ is scalar. The curl direction can be determined using the right hand rule. If there is a counterclockwise spinning vector field on the page then the curl points out of the page. A clockwise spinning vector field on the page will have a curl that points into the page. 
+    $$\nabla \times F = \hat{x}(\partial_y F_z - \partial_z F_y) + \hat{y}(\partial_z F_x - \partial_x F_z) + \hat{z}(\partial_x F_y - \partial_y F_x)$$ 
+    There are a few ways to remember this. You can expand the determinant 
+    $$\mdet{\hat{x} & \hat{y} & \hat{z}\\ \partial_x & \partial_y & \partial_z \\ F_x & F_y & F_z}$$
+    You can also use 
+    $$\nabla = \hat{x}\partial_x + \hat{y}\partial_y + \hat{z}\partial_z$$
+    and find the cross product between $\nabla$ and a function to find its curl. 
+\section{Applications}
+    Most multivariable calculus concepts involving vectors were developed for Electricity and Magnetism, since Electric fields and Magnetic fields are vector fields. For example, Gauss's law is very important since it shows that when there is divergence in an electric field there is non-zero charge, and the divergence of the electric field is proportional to the charge density. 
+    $$\nabla \cdot E = \frac{\rho}{\epsilon_0}$$
+    E is the electric field, $\rho$ is charge density, and $\epsilon_0$ is vacuum permittivity, which is constant. 
+    Another important equation, 
+    $$E = -\nabla \phi$$
+    shows how electric field is related to electric potential, $\phi$.
+    Ampere's law relates the curl of a magnetic field to current density. 
+    $$\nabla \times B = \mu_0 J$$
+    B is the magnetic field, $\mu_0$ is vacuum permeability, and J is current density. 
+\section{Sources}
+    Purcell, Edward M., and David Morin. Electricity and Magnetism. Cambridge University Press, 2013. 
+    \\
+    Stewart, James, et al. Multivariable Calculus. Cengage, 2021. 
+\end{document}
+
