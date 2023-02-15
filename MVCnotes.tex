@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+
+\title{MVC Notes}
+\author{Alex Feng}
+\date{February 2023}
+
+\begin{document}
+    
+\maketitle
+
+\section{Vectors}
+$$u \cross v = 
+\begin{vmatrix}
+    i & j & k \\
+    u_1 & u_2 & u_3 \\
+    v_1 & v_2 & v_3
+\end{vmatrix}
+ = i\begin{vmatrix} 
+    u_2 & u_3 \\ v_2 & v_3
+    
+\end{vmatrix}
+- j\begin{vmatrix}
+    u_1 & u_3 \\
+    v_1 & v_3
+\end{vmatrix}
++k\begin{vmatrix}
+    u_1 & u_2 \\
+    v_1 & v_2
+\end{vmatrix}$$
+
+$$= i(u_2 v_3 - u_3 v_2) - j(u_1 v_3 - u_3 v_1) + k(u_1 v_2 - u_2 v_1)$$
+
+$$\textnormal{vector projection:  } proj_v u = \frac{u \cdot v}{|v|} \hat{v}$$ 
+
+$$\textnormal{scalar projection:  } |proj_v u| = \frac{u \cdot v}{|v|}$$
+
+\section{3D graphs}
+
+The distance d between a point Q and a line $r=r_0 +tv$
+$$d = \frac{|v \cross \Vec{PQ}|}{|v|} $$
+where P is any point on the line and v is a vector parallel to the line. This makes sense since $d = |\Vec{PQ}| \sin \theta$
+
+\vskip 30pt
+
+\noindent For a plane $a(x-x_0 ) + b (y- y_0 ) + c(z- z_0) = 0$
+the normal vector $n = (a,b,c)$
+\pagebreak
+\subsection{Quadric Surfaces}
+$$\textnormal{Ellipsoid: }\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$$
+$$\textnormal{Elliptic paraboloid: }z = \frac{x^2}{a^2} + \frac{y^2}{b^2}$$
+$$\textnormal{Hyperboloid of one sheet: }\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1$$
+$$\textnormal{Hyperboloid of two sheets: }-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$$
+$$\textnormal{Elliptic cone }\frac{x^2}{a^2}+\frac{y^2}{b^2}=\frac{z^2}{c^2}$$
+$$\textnormal{Hyperbolic paraboloid: }z=\frac{x^2}{a^2}-\frac{y^2}{b^2}$$
+
+\section{Vector Valued Functions}
+$$\textnormal{unit tangent vector: } \vec{T} = \frac{\vec{v}}{|\vec{v}|}$$
+$$\textnormal{principle unit vector: } \vec{N} = \frac{d\vec{T}/dt}{|d\vec{T}/dt|}$$
+The principle unit vector is always perpendicular to the unit tangent vector, which makes sense since it points in the rate of change of the unit tangent vector, which can only change in direction, not length
+$$\textnormal{curavture: } \kappa = \bigg |\frac{d\vec{T}}{ds} \bigg | = \frac{1}{|\vec{v}|} \bigg | \frac{d\vec{T}}{dt} \bigg | = \frac{|\vec{v} \times \vec{a} |}{ |\vec{v}|^3}$$
+
+$$\textnormal{components of acceleration: } \vec{a} = a_N \vec{N} + a_T \vec{T}$$
+$$a_n = \kappa |\vec{v}|^2 = \frac{|\vec{v} \times \vec{a}|}{|\vec{v}|}$$
+$$a_T = \frac{d^2 s}{dt^2} = \frac{\vec{v} \cdot \vec{a}}{|\vec{v}|}$$
+
+$$\textnormal{unit binormal vector: } \vec{B} = \vec{T} \times \vec{N} = \frac{\vec{v} \times \vec{a}}{|\vec{v} \times \vec{a}|}$$
+
+$$\textnormal{torsion: } \tau = - \frac{d\vec{B}}{ds} \cdot \vec{N} = \frac{(\vec{v} \times \vec{a}) \cdot \vec{a}'}{|\vec{v} \times \vec{a}|^2} = \frac{(\vec{r}' \times \vec{r}'') \cdot \vec{r}'''}{|\vec{r}' \times \vec{r}''|^2}$$
+
+\end{document}
