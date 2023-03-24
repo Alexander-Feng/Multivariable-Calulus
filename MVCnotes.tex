@@ -7,7 +7,7 @@
 \date{February 2023}
 
 \begin{document}
-    
+\setlength{\parindent}{0pt}    
 \maketitle
 
 \section{Vectors}
@@ -77,5 +77,23 @@ $$\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x} \frac{\partial x
 $$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$$
 Implicit Differentiation: 
 $$\frac{dy}{dx} = -\frac{F_x}{F_y}$$
+Gradient in 3 dimensions:
+\\For a function $f(x,y,z)$,
+$$\nabla f(x,y,z) = f_x \hat{i} + f_y \hat{j} + f_z \hat{k}$$
+$\nabla f(x,y,z)$ will be perpendicular to the level surface (3D surface where the value of f(x,y,z) is constant).
+\\
+\\Second Derivative Test:
+\\For a function f(x,y), the discriminant is
+$$D(x,y) = \begin{vmatrix} 
+    f_{xx} & f_{xy} \\ f_{yx} & f_{yx}
+    \end{vmatrix} = f_{xx} f_{yy} - (f_{xy} )^2$$
+When $D(a,b) > 0$ then the surface has the same general behavior in all directions near $(a,b)$ (use normal partial derivative to determine if it is min or max). There is a saddle point when $D(a,b) < 0$. The test is inconclusive when $D(a,b) = 0$ 
+\\
+\\
+Lagrange Multipliers:
+\\For an objective function $f(x,y,z)$ and constraint $g(x,y,z) = 0$, at a relative extrema $(a,b,c)$ there exists a Lagrange Multiplier, $\lambda$, where
+$$\nabla f(a,b,c) = \lambda \nabla g(a,b,c)$$
+Intuitively, the  relative extrema is located at a point where objective function surface and the constraint surface are tangent to each other. The gradient for both are orthogonal to the level surface (since it points to the next increasing level surface direction), so the two gradients must be parallel to each other and can be multipled by a scalar to equal each other.   
+
 
 \end{document}
