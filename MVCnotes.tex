@@ -95,5 +95,22 @@ Lagrange Multipliers:
 $$\nabla f(a,b,c) = \lambda \nabla g(a,b,c)$$
 Intuitively, the  relative extrema is located at a point where objective function surface and the constraint surface are tangent to each other. The gradient for both are orthogonal to the level surface (since it points to the next increasing level surface direction), so the two gradients must be parallel to each other and can be multipled by a scalar to equal each other.   
 
+Jacobian:
+\\The Jacobian is the "u-sub" for integrating functions of multiple variables. It is convenient for simplifying the integrand (similar to single variable calculus), but it is also used to simplify the bounds of multivariable integrals. 
+\\For two independent variables,
+$$J(u,v) = \frac{\partial (x,y)}{\partial (u,v)}=\begin{vmatrix}
+    \frac{\partial x}{\partial u}& \frac{\partial x}{\partial v}  \\
+    \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}  
+\end{vmatrix} = \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u} $$
+$$\iint\limits_R f(x,y)dA = \iint\limits_S f(g(u,v),h(u,v))|J(u,v)|dA$$
+Where S is the region R transformed from the $xy$-plane to the $uv$-plane, and $J(u,v)$ is the Jacobian for the transformation $x=g(u,v)$,$y=h(u,v)$.
+\\For three independent variables,
+$$J(u,v,w) = \frac{\partial (x,y,z)}{\partial (u,v,w)}=\begin{vmatrix}
+    \frac{\partial x}{\partial u}& \frac{\partial x}{\partial v}& \frac{\partial x}{\partial w}  \\
+    \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}& \frac{\partial y}{\partial w} \\
+    \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v}& \frac{\partial z}{\partial w}
+\end{vmatrix} $$
+$$\iiint\limits_D f(x,y,z)dV = \iiint\limits_S f(g(u,v,w),h(u,v,w),p(u,v,w))|J(u,v,w)|dV$$
+Where S is the region D transformed from $xyz$-space to the $uvw$-space, and $J(u,v,w)$ is the Jacobian for the transformation $x=g(u,v,w)$, $y=h(u,v,w)$, $z=p(u,v,w)$.
 
 \end{document}
