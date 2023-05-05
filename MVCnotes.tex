@@ -96,7 +96,7 @@ $$\nabla f(a,b,c) = \lambda \nabla g(a,b,c)$$
 Intuitively, the  relative extrema is located at a point where objective function surface and the constraint surface are tangent to each other. The gradient for both are orthogonal to the level surface (since it points to the next increasing level surface direction), so the two gradients must be parallel to each other and can be multipled by a scalar to equal each other.   
 
 Jacobian:
-\\The Jacobian is the "u-sub" for integrating functions of multiple variables. It is convenient for simplifying the integrand (similar to single variable calculus), but it is also used to simplify the bounds of multivariable integrals. 
+\\The Jacobian is the ``u-sub" for integrating functions of multiple variables. It is convenient for simplifying the integrand (similar to single variable calculus), but it is also used to simplify the bounds of multivariable integrals. 
 \\For two independent variables,
 $$J(u,v) = \frac{\partial (x,y)}{\partial (u,v)}=\begin{vmatrix}
     \frac{\partial x}{\partial u}& \frac{\partial x}{\partial v}  \\
@@ -112,5 +112,16 @@ $$J(u,v,w) = \frac{\partial (x,y,z)}{\partial (u,v,w)}=\begin{vmatrix}
 \end{vmatrix} $$
 $$\iiint\limits_D f(x,y,z)dV = \iiint\limits_S f(g(u,v,w),h(u,v,w),p(u,v,w))|J(u,v,w)|dV$$
 Where S is the region D transformed from $xyz$-space to the $uvw$-space, and $J(u,v,w)$ is the Jacobian for the transformation $x=g(u,v,w)$, $y=h(u,v,w)$, $z=p(u,v,w)$.
+
+\pagebreak
+Line integrals:
+\\For a scalar function $f(x(t),y(t),z(t))$,
+$$\int \limits_C f(x(t),y(t),z(t)) ds = \int \limits_C f(x(t),y(t),z(t)) |r'(t)|dt$$ $$=\int_a^b f(x(t),y(t),z(t)) \sqrt{(x'(t))^2 +(y'(t))^2 + (z'(t))^2} dt$$
+\\A conservative vector field $\vec F$ always has a potential function $\phi$ where $\vec F = \nabla \phi$. 
+$$\int \limits_C \vec F \cdot d \vec r =  \int \limits_C \nabla \phi \cdot d \vec r = \phi(B) - \phi(A)$$
+for C in R from A to B. Intuitively, 
+$$\oint \limits_C \vec F \cdot d \vec r = 0$$
+for a closed curve C. Alternatively, a method for vector field line integrals that works for non-conservative fields is
+$$\int \limits_C \vec F \cdot d \vec r = \int_a^b \vec F(\vec r(t)) \cdot \vec r'(t) dt$$
 
 \end{document}
