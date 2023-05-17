@@ -13,24 +13,24 @@
 \section{Vectors}
 $$u \cross v = 
 \begin{vmatrix}
-    i & j & k \\
+    \hat{i} & \hat{j} & \hat{k} \\
     u_1 & u_2 & u_3 \\
     v_1 & v_2 & v_3
 \end{vmatrix}
- = i\begin{vmatrix} 
+ = \hat{i}\begin{vmatrix} 
     u_2 & u_3 \\ v_2 & v_3
     
 \end{vmatrix}
-- j\begin{vmatrix}
+- \hat{j}\begin{vmatrix}
     u_1 & u_3 \\
     v_1 & v_3
 \end{vmatrix}
-+k\begin{vmatrix}
++\hat{k}\begin{vmatrix}
     u_1 & u_2 \\
     v_1 & v_2
 \end{vmatrix}$$
 
-$$= i(u_2 v_3 - u_3 v_2) - j(u_1 v_3 - u_3 v_1) + k(u_1 v_2 - u_2 v_1)$$
+$$= \hat{i}(u_2 v_3 - u_3 v_2) - \hat{j}(u_1 v_3 - u_3 v_1) + \hat{k}(u_1 v_2 - u_2 v_1)$$
 
 $$\textnormal{vector projection:  } proj_v u = \frac{u \cdot v}{|v|} \hat{v}$$ 
 
@@ -93,10 +93,21 @@ When $D(a,b) > 0$ then the surface has the same general behavior in all directio
 Lagrange Multipliers:
 \\For an objective function $f(x,y,z)$ and constraint $g(x,y,z) = 0$, at a relative extrema $(a,b,c)$ there exists a Lagrange Multiplier, $\lambda$, where
 $$\nabla f(a,b,c) = \lambda \nabla g(a,b,c)$$
-Intuitively, the  relative extrema is located at a point where objective function surface and the constraint surface are tangent to each other. The gradient for both are orthogonal to the level surface (since it points to the next increasing level surface direction), so the two gradients must be parallel to each other and can be multipled by a scalar to equal each other.   
+Intuitively, the  relative extrema is located at a point where objective function surface and the constraint surface are tangent to each other. The gradient for both are orthogonal to the level surface (since it points to the next increasing level surface direction), so the two gradients must be parallel to each other and can be multiplied by a scalar to equal each other.   
 
+\section{Integration}
+\subsection{Alternate Coordinates}
+Polar Coordinates:
+$$x=r\cos \theta ,\; y=r \sin \theta ,\; r^2 = x^2 + y^2$$
+$$\iint\limits_R f(x,y) dA = \int^\beta _\alpha \int^{h(\theta)} _{g( \theta)} f( r \cos \theta , r \sin \theta )r dr d\theta$$
+Cylindrical Coordinates:
+$$x=r\cos \theta ,\; y=r \sin \theta ,\; r^2 = x^2 + y^2 + z^2, \; z = z$$
+$$\iiint\limits_D f(x,y,z) dV = \int^\beta _\alpha \int^{h(\theta)} _{g( \theta)} \int^{H(r\cos \theta, r \sin \theta )}_{G(r \cos \theta , r \sin \theta )} f( r \cos \theta , r \sin \theta, z )r dz dr d\theta$$
+Spherical Coordinates:
+$$x= \rho \sin \phi \cos \theta ,\; y=\rho \sin \phi \sin \theta ,\; z = \rho \cos \phi , \; \rho^2 = x^2 + y^2 + z^2$$
+$$\iiint\limits_D f(x,y,z) dV = \int^\beta _\alpha \int^{b} _{a} \int^{H(\phi, \theta )}_{G(\phi,\theta )} f( \rho \sin \phi \cos \theta , \rho \sin \phi \sin \theta, \rho \cos \phi  ) \rho ^2 \sin \phi  d\rho d \phi d\theta$$
 Jacobian:
-\\The Jacobian is the ``u-sub" for integrating functions of multiple variables. It is convenient for simplifying the integrand (similar to single variable calculus), but it is also used to simplify the bounds of multivariable integrals. 
+\\The Jacobian is the ``u-sub'' for integrating functions of multiple variables. It is convenient for simplifying the integrand (similar to single variable calculus), but it is also used to simplify the bounds of multivariable integrals. 
 \\For two independent variables,
 $$J(u,v) = \frac{\partial (x,y)}{\partial (u,v)}=\begin{vmatrix}
     \frac{\partial x}{\partial u}& \frac{\partial x}{\partial v}  \\
@@ -114,6 +125,7 @@ $$\iiint\limits_D f(x,y,z)dV = \iiint\limits_S f(g(u,v,w),h(u,v,w),p(u,v,w))|J(u
 Where S is the region D transformed from $xyz$-space to the $uvw$-space, and $J(u,v,w)$ is the Jacobian for the transformation $x=g(u,v,w)$, $y=h(u,v,w)$, $z=p(u,v,w)$.
 
 \pagebreak
+\subsection{Line and Surface integrals}
 Line integrals:
 \\For a scalar function $f(x(t),y(t),z(t))$,
 $$\int \limits_C f(x(t),y(t),z(t)) ds = \int \limits_C f(x(t),y(t),z(t)) |r'(t)|dt$$ $$=\int_a^b f(x(t),y(t),z(t)) \sqrt{(x'(t))^2 +(y'(t))^2 + (z'(t))^2} dt$$
@@ -124,4 +136,36 @@ $$\oint \limits_C \vec F \cdot d \vec r = 0$$
 for a closed curve C. Alternatively, a method for vector field line integrals that works for non-conservative fields is
 $$\int \limits_C \vec F \cdot d \vec r = \int_a^b \vec F(\vec r(t)) \cdot \vec r'(t) dt$$
 
+Surface integrals:
+\\For a function $f$ on a smooth surface S given parametrically by $\vec r(u,v) = \langle x(u,v), y(u,v), z(u,v) \rangle$, the surface integral of f over S is
+$$\iint \limits_S f(x,y,z) dS = \iint \limits_R f(x(u,v),y(u,v),z(u,v)) \bigg| \frac{\partial \vec r}{\partial u} \times \frac{\partial \vec r}{\partial v} \bigg| dA$$
+\\For a surface S explicitly defined by $z = g(x,y)$, the surface integral of a function $f$ over S is
+$$\iint \limits_S f(x,y,z) dS = \iint \limits_R f(x,y,g(x,y)) \sqrt{z_x ^2 + z_y ^2 +1}dA$$
+
+The surface integral of vector field $\vec F = \langle f,g,h \rangle$ over surface S defined parametrically as $\vec r (u,v)= \langle x(u,v), y(u,v), z(u,v) \rangle$ is 
+$$\iint \limits_S \vec F \cdot \vec n dS = \iint \limits _R \vec F \cdot \bigg(\frac{\partial \vec r}{\partial u} \times \frac{\partial \vec r}{\partial u} \bigg) dA$$
+For S defined in the form $z = s(x,y)$
+$$\iint \limits_S \vec F \cdot \vec n dS = \iint \limits_R (-fz_x - gz_y + h) dA$$
+\section{Theorems}
+Divergence:
+\\For a differentiable vector field $\vec F = \langle f,g,h \rangle$
+$$\nabla \cdot \vec F = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z}$$
+A ``source free" vector field has a divergence of 0. For a differentiable vector field
+$$\vec F = \frac{\vec r}{| \vec r| ^p} = \frac{\langle x,y,z \rangle}{(x^2 + y^2 + z^2)^{p/2}}$$
+$$ \nabla \cdot \vec F = \frac{3-p}{|\vec r |^p}$$
+Curl:
+\\For a differentiable vector field $\vec F = \langle f,g,h \rangle$
+$$\nabla \times \vec F = \begin{vmatrix}
+    \hat{i} & \hat{j} & \hat{k} \\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+    f & g & h
+\end{vmatrix} = \bigg(\frac{\partial h}{\partial y} - \frac{\partial g}{\partial z} \bigg) \hat{i} + \bigg(\frac{\partial f}{\partial z} - \frac{\partial h}{\partial x} \bigg) \hat{j} + \bigg(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y} \bigg)\hat{k}$$
+A vector field with 0 curl is irrotational. The general rotation vector field is $\vec F = \vec a \times \vec r$ where $\vec a = \langle a_1, a_2, a_3 \rangle$ is the axis of rotation and $\vec r = \langle x,y,z \rangle$. $|\nabla \times \vec F| = 2 |\vec a|$ and $\nabla \cdot \vec F = 0$. The constant angular speed of the field is 
+$$\omega = |\vec a| = \frac{1}{2} | \nabla \times \vec F|$$
+
+Stokes' Theorem:
+$$\oint \limits _C \vec F \cdot d\vec r = \iint \limits _S (\nabla \times \vec F) \cdot \vec n dS$$
+
+Divergence Theorem:
+$$\iint \limits_S \vec F \cdot \vec n dS = \iiint _D \nabla \cdot \vec F dV$$
 \end{document}
